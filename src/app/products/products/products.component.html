@@ -1,0 +1,124 @@
+<div>
+  <div class="" *ngIf="!addProduct">
+    <div class="top-section d-flex justify-content-between m-4">
+      <nz-select [(ngModel)]="selectedCatId" (ngModelChange)="selectCategory($event)" nzSize="large" nzPlaceHolder="Select Accessory" class="select_bar">
+        <nz-option *ngFor="let item of accessory" [nzLabel]="item.accessoryName" [nzValue]="item.accessoryId"></nz-option>
+      </nz-select>
+    
+      <nz-select [(ngModel)]="selecetedProdId" (ngModelChange)="selectproduct($event)" style="width: 680px;" nzSize="large" nzPlaceHolder="Select Product Name" class="select_bar">
+        <nz-option *ngFor="let item of selectedCategory" [nzLabel]="item.name" [nzValue]="item.prodId"></nz-option>
+      </nz-select>
+    
+    
+      <!-- <nz-input-group nzSize="large" class="search_bar " [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="Search Item" />
+      </nz-input-group> -->
+      <ng-template #suffixIconSearch>
+        <span nz-icon nzType="search"></span>
+      </ng-template>
+    
+      <input type="button" value="Add New Product" class="btn btn-primary" />
+    </div>
+    <div class="middle-section">
+      
+      <div *ngIf="showProducts" class="widget">
+        <div class="title-bar d-flex justify-content-between" style="padding: 1%;">
+          <p class="title">{{selectedProduct.name}}</p>
+          <nz-select nzSize="large" nzPlaceHolder="Available Brands" class="select_bar">
+            <nz-option *ngFor="let item of availableBrands" [nzLabel]="item.brandName" [nzValue]="item.brandId"></nz-option>
+          </nz-select>
+        </div>
+        <div class="col-md-12 d-flex bd-highlight">
+          <div class="col-md-7 row">
+            <div class="d-flex">
+              <img class="image col-md-4"
+                [src]="selectedProduct.image"
+                [alt]="selectedProduct.name" />
+              <div class="col-md-8 d-flex" style="margin-left: 20px;">
+                <span class="col-md-3 mt-4">
+                  <p>Product :</p>
+                  <p>Model :</p>
+                  <p>Brand :</p>
+                  <p>Location :</p>
+                  <p>Price :</p>
+                  <p>Available No's :</p>
+    
+                </span>
+    
+                <span class="col-md-2 mt-4">
+                  <p>{{selectedProduct.prodName}}</p>
+                  <p>{{selectedProduct.model}}</p>
+                  <p>{{selectedProduct.brand}}</p>
+                  <p>{{selectedProduct.location}}</p>
+                  <p>{{selectedProduct.amount}}</p>
+                  <p>{{selectedProduct.availableNos}}</p>
+                </span>
+              </div>
+    
+            </div>
+    
+            <div class="m-2 col-md-8">
+              <h5>About Product:</h5>
+              <ul>
+                <li>Applicable to all old hero honda </li>
+                <li>Have high visibility and transparency; Provide excellent focus of light during night time</li>
+                <li>Highly appreciated for its accurate illumination capability</li>
+                <li>Visor made up of high impact polycarbonate material</li>
+                <li>The soothing light is not blinding and allows the biker to perfectly see the road ahead of him</li>
+              </ul>
+            </div>
+    
+            <div class="m-2 col-md-6">
+              <h5>Available Colors:</h5>
+              <div class="row m-3 justify-content-between">
+                <span class="prod-colors bg-primary"></span>
+                <span class="prod-colors bg-dark"></span>
+                <span class="prod-colors bg-secondary"></span>
+                <span class="prod-colors bg-danger"></span>
+                <span class="prod-colors bg-warning"></span>
+    
+    
+              </div>
+            </div>
+    
+    
+            <!-- <div class="col-md-8">
+              <table>
+                <tr>
+                  <th>Colors</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td>Black</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Blue</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Green</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Red</td>
+                  <td>3</td>
+                </tr>
+              </table>
+            </div> -->
+          </div>
+    
+          <div class="d-flex m-2 col-md-5 m-2">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="addProduct">
+    <div class="card-container-body">
+      <div class="card-header"></div>
+    </div>
+  </div>
+</div>
